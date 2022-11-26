@@ -13,5 +13,11 @@ after_success:
   - docker build -t marlanfer/multi-nginx ./nginx
   - docker build -t marlanfer/multi-server ./server
   - docker build -t marlanfer/multi-worker ./worker
-
+  # docker logn
+  - echo "$DOCKER_PW" | docker login -u "$DOCKER_ID" --password-stdin
+  # docker push
+  - docker push marlanfer/multi-client
+  - docker push marlanfer/multi-nginx
+  - docker push marlanfer/multi-server
+  - docker push marlanfer/multi-worker
 
